@@ -1,16 +1,14 @@
 import './styles.css';
+import './fetchCountries.js';
+import fetchCountries from './fetchCountries.js';
+import debounce from '../node_modules/lodash.debounce/index.js';
 
-import {
-  alert,
-  info,
-  error,
-  defaultModules,
-} from "../node_modules/@pnotify/core/dist/PNotify.js";
-import * as PNotifyDesktop from "../node_modules/@pnotify/desktop/dist/PNotifyDesktop.js";
-import "../node_modules/@pnotify/core/dist/PNotify.css";
-import "../node_modules/@pnotify/desktop/dist/PNotifyDesktop.css";
-import '@pnotify/core/dist/BrightTheme.css';
+const list = document.querySelector('.countries-list');
 
-defaultModules.set(PNotifyDesktop, {});
 
-error("Too many entries found. Please enter a more specific query!");
+
+document.querySelector('input').addEventListener(
+'input',
+  debounce(fetchCountries, 500),
+)
+
