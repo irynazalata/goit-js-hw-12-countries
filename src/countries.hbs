@@ -1,14 +1,14 @@
-<h2 style="text-align: center">{{name}}</h2>
-<div style="display: flex; justify-content: center">
-  <div>
-    <p style="font-weight: 700">Capital: <span style="font-weight: 500">{{capital}}</span></p>
-    <p style="font-weight: 700">Population: <span style="font-weight: 500">{{population}}</span></p>
-    <p style="font-weight: 700">Languages: </p>
-    <ul style="padding-left: 20px">
+<h2 class="countries-title">{{name}}</h2>
+<div class="countries-description">
+  <div class="countries-description-items">
+    <p>Capital: <span>{{capital}}</span></p>
+    <p>Population: <span>{{population}}</span></p>
+    <p>Languages: </p>
+    <ul class="languages">
       {{#each languages}}
-      <li>{{this.name}}</li>
+      <li class="languages-item">{{this.name}}</li>
       {{/each}}
     </ul>
   </div>
-  <img src="{{flag}}" width="200" style="margin-left: 30px">
+  <img src="{{flag}}" width="250">
 </div>
