@@ -23,6 +23,7 @@ const fetchCountries = function (event) {
         return data;
       })
       .then(data => {
+        document.querySelector('.countries-list').textContent = ""
         if (data.length >= 2 && data.length < 10) {
           data.forEach(el => document.querySelector('.countries-list').insertAdjacentHTML('beforeend', `<li class="list-item">${el.name}</li>`))
           document.querySelector('.countries-list').addEventListener('click', (event) => {
