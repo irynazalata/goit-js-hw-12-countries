@@ -57,6 +57,7 @@ input {
   padding-top: 5px;
   padding-left: 3px;
   padding-bottom: 10px;
+  cursor: pointer;
 }
 
 .list-item:last-child {
