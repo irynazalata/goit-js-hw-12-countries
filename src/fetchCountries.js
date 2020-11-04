@@ -11,6 +11,8 @@ import countriesTemplate from '../src/countries.hbs';
 defaultModules.set(PNotifyDesktop, {});
 
 
+document.querySelector('.countries').innerHTML = localStorage.getItem('country') || "";
+
 const fetchCountries = function (event) {
   event.target.value === '' ? document.querySelector('.countries-list').textContent = "" : ""
   if (event.target.value.length > 0) {
@@ -32,6 +34,7 @@ const fetchCountries = function (event) {
                 let markup = countriesTemplate(el);
                 document.querySelector('.countries').innerHTML = markup;
                 document.querySelector('.countries-list').textContent = "";
+                localStorage.setItem('country', markup);
               }
             })
           })
@@ -42,6 +45,7 @@ const fetchCountries = function (event) {
         if (data.length === 1) {
           let markup = countriesTemplate(data[0])
           document.querySelector('.countries').innerHTML = markup;
+          localStorage.setItem('country', markup);
         };
         return data;
       })
