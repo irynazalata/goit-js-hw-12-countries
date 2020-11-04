@@ -1,14 +1,10 @@
 import {
-  error,
-  defaultModules,
+  error
 } from "../node_modules/@pnotify/core/dist/PNotify.js";
-import * as PNotifyDesktop from "../node_modules/@pnotify/desktop/dist/PNotifyDesktop.js";
 import "../node_modules/@pnotify/core/dist/PNotify.css";
-import "../node_modules/@pnotify/desktop/dist/PNotifyDesktop.css";
 import '@pnotify/core/dist/BrightTheme.css';
 import countriesTemplate from '../src/countries.hbs';
 
-defaultModules.set(PNotifyDesktop, {});
 
 
 document.querySelector('.countries').innerHTML = localStorage.getItem('country') || "";
@@ -20,7 +16,7 @@ const fetchCountries = function (event) {
       .then(response => (response.ok) ? response.json() : Promise.reject(`Error status ` + response.status))
       .then(data => {
         if (data.length > 10) {
-          error("Too many entries found. Please enter a more specific query!");
+          error({ delay: 500, text: "Too many entries found. Please enter a more specific query!" });
         };
         return data;
       })
