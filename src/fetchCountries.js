@@ -16,7 +16,7 @@ const fetchCountries = function (event) {
       .then(response => (response.ok) ? response.json() : Promise.reject(`Error status ` + response.status))
       .then(data => {
         if (data.length > 10) {
-          error({ delay: 2500, text: "Too many entries found. Please enter a more specific query!" });
+          error({ delay: 3500, text: "Too many entries found. Please enter a more specific query!" });
         };
         return data;
       })
